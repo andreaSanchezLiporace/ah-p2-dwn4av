@@ -12,11 +12,10 @@ import * as services from './../services/auth.services.js'
  * @param {object} req - Objeto de solicitud HTTP.
  * @param {object} res - Objeto de respuesta HTTP.
 */
-const create = (req, res) => {
+async function createAccount(req, res) {
     const user = req.body
-    services.create(user)
+    return services.createAccount(user)
         .then(user => {
-            const token = jwt.sign({ id: user._id, usuario: user.usuario }, 'CLAVE_SECRETA')
             res.status(201).json({user, token})
         })
         .catch((error) => res.status(500).json({message: error.message}))
@@ -26,7 +25,7 @@ const create = (req, res) => {
  * Realiza el inicio de sesión del usuario y genera un token de autenticación.
  * @param {object} req - Objeto de solicitud HTTP.
  * @param {object} res - Objeto de respuesta HTTP.
- */
+
 const login = (req, res) => {
     const user = req.body
     services.login(user)
@@ -37,8 +36,7 @@ const login = (req, res) => {
         })
         .catch((error) => res.status(500).json({message: error.message}))
 }
-
+ */
 export {
-    login,
-    create
+    createAccount
 }

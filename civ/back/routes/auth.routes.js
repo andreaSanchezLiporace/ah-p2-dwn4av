@@ -6,6 +6,7 @@
 */
 import express from 'express'
 import * as controller from '../controllers/auth.controller.js'
+import { accountValidate } from '../middlewares/Auth.middlewares.js'
 
 /** Router de autenticación.*/
 const router = express.Router()
@@ -14,7 +15,14 @@ const router = express.Router()
  * Ruta para la creación de un usuario - @route POST /auth/ - @group Autenticación
  * Ruta para el inicio de sesión - @route POST /auth/login - @group Autenticación
  */
-router.post('/', controller.create)
-router.post('/login', controller.login)
+router.post('/', [accountValidate], controller.createAccount)
+
+// PERFIL -> cuidado con esta ruta, preguntar al profesor si no habra conflicto con las futuras rutas para la vista del perfil del cliente
+//router.post('/profile', controller.createProfile)
+//router.get('/profile', controller.getProfile)
+
+// SESSION -> cambiar nombre a login en todo el programa, puede ser session (ambas rutas serían iguales)
+//router.post('/login', controller.login)
+//router.delete('/logout', controller.logout)
 
 export default router

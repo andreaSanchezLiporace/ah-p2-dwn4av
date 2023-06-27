@@ -16,12 +16,6 @@ function App(){
 export default App;
 
 /**
- * Importo los módulos:
- * @function useEffect de 'react' para ejecutar efectos secundarios en el componente.
- * @function Routes Route y useNavigate de 'react-router-dom' -> funciones y componentes relacionados con el enrutamiento de React Router.
- * Estilos propios -> './css/estilos.css'
- * Componentes de cada vista del sitio: home, blog, login, register, vehiculos (abm inicial, form editar, form nuevo), servicios (abm inicial, form editar, form nuevo), pag 404, header y footer
-
 import { useEffect } from 'react'
 import { Routes, Route, useNavigate } from 'react-router-dom'
 import Home from './pages/home'
