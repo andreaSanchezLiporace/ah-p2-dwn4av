@@ -1,0 +1,10 @@
+.footer {
+    padding: 25px 0;
+    height: auto;
+    background-color: #1A3349;
+}
+
+.footer .content {
+    width: 80%;
+    margin: 0 auto;
+}

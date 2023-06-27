@@ -1,0 +1,28 @@
+[
+  {
+    "_id": {
+      "$oid": "6362f3d60b6797da845854f8"
+    },
+    "domain": "ADP023",
+    "make": "FIAT",
+    "model": "Palio",
+    "type": "VEHICULO",
+    "color": "ROJO",
+    "year": 2018,
+    "chassis": "2342675687548",
+    "insurance": "SURA"
+  },
+  {
+    "_id": {
+      "$oid": "648e17bc25fafc4fadf1e851"
+    },
+    "domain": "ADP024",
+    "make": "FIAT",
+    "model": "Argo",
+    "type": "VEHICULO",
+    "color": "NEGRO",
+    "year": 2023,
+    "chassis": "2342675687550",
+    "insurance": "FEDERACION PATRONAL"
+  }
+]

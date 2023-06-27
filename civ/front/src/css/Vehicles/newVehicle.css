@@ -1,0 +1,111 @@
+.newVehicle {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.newVehicle > .header {
+    width: 100%;
+    height: auto;
+    background-color: #1F4866;
+    color: #FFF;
+}
+
+.newVehicle > .header > p {
+    width: 90%;
+    text-align: center;
+    margin: 50px auto;
+    font-size: 35px;
+    text-transform: uppercase;
+}
+
+.newVehicle .content {
+    width: 60%;
+    margin: 50px auto;
+}
+
+.newVehicle .content .first-form,
+.newVehicle .content .second-form {
+    width: 100%;
+    margin: 25px auto;
+    padding: 15px;
+    outline: 1px solid #1F4866;
+    box-shadow: 5px 5px 5px #1f4866;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.newVehicle .content .first-form .header,
+.newVehicle .content .second-form .header {
+    width: 100%;
+    height: 50px;
+    font-size: 20px;
+    margin-bottom: 25px;
+    text-transform: uppercase;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.newVehicle .content form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.newVehicle .content .first-form .form,
+.newVehicle .content .second-form .form {
+    width: 100%;
+}
+
+.newVehicle .content .first-form .form div,
+.newVehicle .content .second-form .form div {
+    display: flex;
+    justify-content: center;
+}
+
+.newVehicle .content .first-form .form div div,
+.newVehicle .content .second-form .form div div {
+    width: 50%;
+}
+
+.newVehicle .content .first-form .form div div label,
+.newVehicle .content .second-form .form div div label {
+    display: none;
+}
+
+.newVehicle .content .first-form .form div div input,
+.newVehicle .content .second-form .form div div input {
+    width: 70%;
+    padding: 10px;
+    margin-bottom: 25px;
+    border: none;
+    outline: 1px solid #1F4866;
+    border-radius: 5px;
+    color: #1F4866;
+}
+
+.newVehicle .content .second-form .form div div select {
+    width: 70%;
+    margin-bottom: 25px;
+    border: none;
+    outline: 1px solid #1F4866;
+    border-radius: 5px;
+    padding: 10px;
+    color: #1F4866;
+}
+
+.newVehicle .content .second-form .form div div select option {
+    color: #1F4866 !important;
+}
+
+.newVehicle .content .buttons {
+    width: 20%;
+    min-height: 130px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}

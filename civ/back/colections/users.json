@@ -1,0 +1,18 @@
+[
+    {
+        "_id": {
+            "$oid": "63865eff339c1d99508347de"
+        },
+        "user": "andre",
+        "password": "$2b$10$mMGvxrlEiK75OoP5lewPHO5/wvGTPP6Z/rU2TtFNYnTLW.3bragie",
+        //Pass: andre
+    },
+    {
+        "_id": {
+            "$oid": "64890adc75a004a325a00be1"
+        },
+        "user": "lucio",
+        "password": "$2b$10$1F7CeLUmS/a4RBEcgcHrqes7WHHE2D9q8KUNalq7RM3gJUzQVxVbG",
+        //Pass: lucio
+    }
+]

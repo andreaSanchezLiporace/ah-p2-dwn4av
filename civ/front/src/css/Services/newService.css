@@ -1,0 +1,112 @@
+:root {
+    --color-primary: #1A3349;
+    --color-secondary: #1F4866;
+}
+
+.newService {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.newService > .header {
+    width: 100%;
+    height: auto;
+    background-color: var(--color-secondary);
+    color: #FFF;
+}
+
+.newService > .header > p {
+    width: 90%;
+    text-align: center;
+    margin: 50px auto;
+    font-size: 35px;
+    text-transform: uppercase;
+}
+
+.newService .content {
+    width: 60%;
+    margin: 50px auto;
+}
+
+.newService .content .first-form {
+    width: 100%;
+    margin: 25px auto;
+    padding: 45px;
+    outline: 1px solid var(--color-secondary);
+    box-shadow: 5px 5px 5px var(--color-secondary);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.newService .content form {
+    display: flex;
+    flex-direction: column;
+}
+
+.newService .content .first-form .form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.newService .content .first-form .form div {
+    display: flex;
+    justify-content: space-around;
+}
+
+.newService .content .first-form .form .margin-adjust {
+    margin: 0 0.6%;
+}
+
+.newService .content .first-form .form div div {
+    width: 100%;
+}
+
+.newService .content .first-form .form div div label {
+    display: none;
+}
+
+.newService .content .first-form .form div div input,
+.newService .content .first-form .form div div textarea {
+    width: 98%;
+    padding: 10px;
+    margin-bottom: 25px;
+    border: none;
+    outline: 1px solid var(--color-secondary);
+    border-radius: 5px;
+    color: var(--color-secondary);
+}
+
+.newService .content .first-form .form div div select {
+    width: 98%;
+    margin-bottom: 25px;
+    border: none;
+    outline: 1px solid var(--color-secondary);
+    border-radius: 5px;
+    padding: 10px;
+    color: var(--color-secondary);
+}
+
+.newService .content .first-form .form div div select option {
+    color: var(--color-secondary) !important;
+}
+
+.newService .content .buttons {
+    width: 20%;
+    min-height: 130px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.newService .content .buttons {
+    width: 20%;
+    min-height: 130px;
+    margin: 0 0 0 80%;
+    display: flex;
+    flex-direction: column;
+}

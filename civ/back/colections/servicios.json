@@ -1,0 +1,38 @@
+[
+    {
+        "_id": {
+        "$oid": "6389305beb4716088b842b7f"
+        },
+        "state": "Pendiente",
+        "payment": "Pendiente",
+        "date": "1/12/2022",
+        "order": 1,
+        "mechanic": "andre",
+        "dni": 35149288,
+        "domain": "ADP023",
+        "km": "150000",
+        "spareParts": "Bujías",
+        "detail": "Cambios de bujías",
+        "total": 30000
+    },
+    {
+        "_id": {
+        "$oid": "63893798c9abe7f0e9c51655"
+        },
+        "state": "Pendiente",
+        "payment": "Pendiente",
+        "date": "1/12/2022",
+        "order": 2,
+        "mechanic": "lucio",
+        "dni": 35149288,
+        "domain": "OPR 005",
+        "km": "",
+        "spareParts": "Pastillas de freno",
+        "detail": "Cambio pastillas de freno",
+        "domain": "ADP024",
+        "km": "",
+        "spareParts": "Pastilla de frenos",
+        "detail": "Cambio pastilla de frenos",
+        "total": 56565
+    }
+]

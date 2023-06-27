@@ -1,0 +1,128 @@
+:root {
+    --color-text-white:     #FFFFFF;
+    --color-primary:        #1A3349;
+    --color-secondary:      #1F4866;
+    --color-btn-load-new:   #2C8E29;
+    --color-btn-see-more:   #286A93;
+    --color-btn-edit:       #bd680d;
+    --color-btn-delete:     #912933;
+}
+
+input[type="submit"],
+input[type="reset"],
+input[type="button"],
+button {
+    background: none;
+    border: 0;
+    color: inherit;
+    font: inherit;
+    line-height: normal;
+    overflow: visible;
+    padding: 0;
+    text-transform: uppercase;
+    -webkit-user-select: none; /* for button */
+    -webkit-appearance: button; /* for input */
+    -moz-user-select: none;
+    -ms-user-select: none;
+}
+
+.btn__home__create_account,
+.btn__submit-form {
+    width: 100%;
+    height: auto;
+    padding: 15px;
+    border: none;
+    border-radius: 35px;
+    text-transform: uppercase;
+    color: var(--color-text-white);
+    font-size: 20px;
+    background-color: var(--color-primary);
+}
+
+.link .btn__load-new {
+    width: 20%;
+    height: 45px;
+    margin-bottom: 15px;
+    color: var(--color-text-white);
+    text-transform: uppercase;
+    text-decoration: none;
+    background-color: var(--color-btn-load-new);
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.bg-edit {
+    background-color: var(--color-btn-edit);
+}
+
+.btn__see-more {
+    width: 50%;
+    margin: 0 auto;
+    height: 45px;
+    color: var(--color-text-white);
+    background-color: var(--color-btn-see-more);
+    text-transform: uppercase;
+    text-decoration: none;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn__edit {
+    width: 70%;
+    height: 45px;
+    color: var(--color-text-white);
+    background-color: var(--color-btn-see-more);
+    text-transform: uppercase;
+    text-decoration: none;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn__delete {
+    width: 70%;
+    height: 45px;
+    color: var(--color-text-white);
+    background-color: var(--color-btn-delete);
+    text-transform: uppercase;
+    text-decoration: none;
+    border: none;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn__back {
+    width: 100px;
+    height: 45px;
+    padding: 15px;
+    margin: 0 auto;
+    color: var(--color-primary);
+    text-transform: uppercase;
+    text-decoration: underline;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn__see-more:hover,
+.btn__edit:hover,
+.btn__delete:hover {
+    color: var(--color-text-white);
+}
+.btn__back:hover {
+    color: var(--color-primary);
+}
+
+@media only screen and (min-width: 768px) {
+    .btn__home__create_account {
+        font-size: 24px;
+        width: 300px;
+    }
+}

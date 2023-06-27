@@ -1,0 +1,105 @@
+header > a:link, a:visited, a:active {
+    text-decoration:none !important;
+}
+
+.header nav ul {
+    display: flex;
+}
+
+.header__header {
+    height: 100px;
+    background-color: #1A3349;
+    display: flex;
+    justify-content: space-around;
+}
+
+.header__header .image_logo {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.image_logo img {
+    height: 75px;
+    object-fit: contain;
+}
+
+.header__header nav {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #1A3349 !important;
+}
+
+.header__header nav ul {
+    width: 100%;
+    margin-bottom: 0;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.header__header nav ul li a {
+    color: #FFFFFF !important;
+    transition: background-color 500ms ease-in-out, color 500ms ease-in-out, padding 500ms ease-in-out, border-radius 500ms ease-in-out, font-weight 500ms ease-in-out;
+    display: inline-block;
+    font-family: 'Alata', sans-serif;
+}
+
+/* .header__header nav ul li a:hover {
+    text-decoration: none;
+    font-weight: bold;
+    background-color: #FFFFFF;
+    color: #1A3349;
+    padding: 10px 15px;
+    border-radius: 15px;
+    transition: background-color 500ms ease-in-out, color 500ms ease-in-out, padding 500ms ease-in-out, border-radius 500ms ease-in-out, font-weight 500ms ease-in-out;
+} */
+
+.header__header nav ul li span {
+    color: #71C9FF;
+}
+
+
+
+@media only screen and (max-width: 1440px) {
+    .header__header .image_logo {
+        width: 30%;
+    }
+
+    .header__header nav {
+        width: 70%;
+    }
+}
+
+@media only screen and (max-width: 991px) {
+    .header__header .image_logo {
+        width: 75%;
+        justify-content: start;
+        margin-left: 50px;
+        margin-left: 50px;
+    }
+    
+    .header__header nav {
+        width: 25%;
+        justify-content: end;
+        margin-right: 50px;
+        margin-left: 50px;
+    }
+
+    #navbarSupportedContent {
+        background-color: #1A3349;
+        position: fixed;
+        top: 100px;
+        left: 0;
+        width: 100vw;
+        height: 100%;
+        padding-top: 50px;
+        text-align: center;
+    }
+    #navbarSupportedContent ul {
+        height: 70%;
+        font-size: 18px;
+    }
+}
