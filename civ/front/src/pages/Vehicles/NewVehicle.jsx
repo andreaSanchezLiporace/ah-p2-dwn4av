@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
-import * as VehiclesService from '../../Services/vehicles.js'
+import * as VehiclesService from '../../Services/vehicles'
 import './../../css/Vehicles/newVehicle.css'
 
 function NewVehicle () {

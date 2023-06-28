@@ -1,6 +1,6 @@
 import  { useEffect, useState } from "react"
 import { Link, useParams } from "react-router-dom"
-import * as VehiclesService from "../../Services/vehicles.js"
+import * as VehiclesService from "../../Services/vehicles"
 import './../../css/Vehicles/newVehicle.css'
 
 function EditVehicle () {

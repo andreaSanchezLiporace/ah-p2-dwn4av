@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link, useNavigate } from "react-router-dom"
-import * as VehiclesServices from '../../Services/vehicles.js'
-import * as ServicesServices from '../../Services/services.js'
+import * as VehiclesServices from '../../Services/vehicles'
+import * as ServicesServices from '../../Services/services'
 
 import './../../css/Services/newService.css'
 

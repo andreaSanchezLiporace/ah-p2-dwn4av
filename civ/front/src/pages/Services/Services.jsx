@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom"
-import * as ServicesService from '../../Services/services.js'
+import * as ServicesService from '../../Services/services'
 
 import './../../css/Services/services.css'
 
