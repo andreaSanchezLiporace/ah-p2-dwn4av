@@ -6,7 +6,7 @@
  * @controller 'servicios.controller' para el manejo de las solicitudes relacionadas a los servicios que ofrece el taller.
 */
 import express from 'express'
-import { authorization } from '../middlewares/Auth.middlewares.js'
+//import { accountValidate } from '../middlewares/Auth.middlewares.js'
 import * as controller from '../controllers/servicios.controller.js'
 
 /** Router de servicios */
@@ -15,8 +15,9 @@ const router = express.Router();
 /**
  * Middleware de autorización que se ejecuta en todas las rutas definidas en este enrutador.
  * Verifica si el usuario está autorizado antes de procesar la solicitud.
+
+router.all('*', accountValidate)
 */
-router.all('*', authorization)
 
 /**
  * Ruta para obtener todos los servicios - @route GET '/'

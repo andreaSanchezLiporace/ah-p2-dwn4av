@@ -15,7 +15,7 @@ const router = express.Router()
  * Ruta para la creación de un usuario - @route POST /auth/ - @group Autenticación
  * Ruta para el inicio de sesión - @route POST /auth/login - @group Autenticación
  */
-router.post('/', [accountValidate], controller.createAccount)
+router.post('/account', [accountValidate], controller.createAccount)
 
 // PERFIL -> cuidado con esta ruta, preguntar al profesor si no habra conflicto con las futuras rutas para la vista del perfil del cliente
 //router.post('/profile', controller.createProfile)
