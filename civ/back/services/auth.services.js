@@ -17,7 +17,7 @@ const COLLECTION_NAME = 'accounts'
  * @returns {Promise<Object>} Una promesa que se resuelve con el objeto de la cuenta creada.
  * @throws {Error} Si ya existe un usuario con el mismo nombre.
 */
-async function createAccount({account}) {
+async function createAccount(account) {
     return database(async db => {
         const existAccount = await db.collection(COLLECTION_NAME).findOne({userName: account.userName})        
         if (!existAccount) {

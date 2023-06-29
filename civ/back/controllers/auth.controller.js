@@ -16,7 +16,7 @@ async function createAccount(req, res) {
     const user = req.body
     return services.createAccount(user)
         .then(user => {
-            res.status(201).json({user, token})
+            res.status(201).json({user /*, token*/})
         })
         .catch((error) => res.status(500).json({message: error.message}))
 }

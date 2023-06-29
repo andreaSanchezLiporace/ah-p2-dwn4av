@@ -12,8 +12,8 @@ import { accountValidate } from '../middlewares/Auth.middlewares.js'
 const router = express.Router()
 
 /**
- * Ruta para la creación de un usuario - @route POST /auth/ - @group Autenticación
- * Ruta para el inicio de sesión - @route POST /auth/login - @group Autenticación
+ * Ruta para la creación de un usuario - @route POST /account
+ * 
  */
 router.post('/account', [accountValidate], controller.createAccount)
 
