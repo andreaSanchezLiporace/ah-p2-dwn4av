@@ -6,7 +6,7 @@
 */
 import express from 'express'
 import * as controller from '../controllers/auth.account.controller.js'
-import { accountValidate } from '../middlewares/Auth.account.middlewares.js'
+import { accountValidate } from '../middlewares/auth.account.middlewares.js'
 
 /** Router de autenticación.*/
 const router = express.Router()
@@ -22,7 +22,7 @@ router.post('/account', [accountValidate], controller.createAccount)
 //router.get('/profile', controller.getProfile)
 
 // SESSION
-router.post('/login', [accountValidate], controller.login)
+router.post('/session', [accountValidate], controller.login)
 //router.delete('/logout', controller.logout)
 
 export default router

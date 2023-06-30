@@ -6,8 +6,9 @@
  * @controller 'vehiculos.controller' para el manejo de las solicitudes relacionadas a los vehículos.
 */
 import express from 'express'
-//import { accountValidate } from '../middlewares/Auth.middlewares.js'
 import * as controller from '../controllers/vehiculos.controller.js'
+import { validateToken } from '../middlewares/token.middlewares.js'
+import { accountValidate } from '../middlewares/auth.account.middlewares.js'
 
 /** Router de vehículos */
 const router = express.Router();

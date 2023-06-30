@@ -6,8 +6,9 @@
  * @controller 'servicios.controller' para el manejo de las solicitudes relacionadas a los servicios que ofrece el taller.
 */
 import express from 'express'
-//import { accountValidate } from '../middlewares/Auth.middlewares.js'
 import * as controller from '../controllers/servicios.controller.js'
+import { validateToken } from '../middlewares/token.middlewares.js'
+import { accountValidate } from '../middlewares/auth.account.middlewares.js'
 
 /** Router de servicios */
 const router = express.Router();
@@ -26,7 +27,7 @@ router.all('*', accountValidate)
  * Ruta para crear un nuevo servicio - @route POST ''
  * Ruta para editar un servicio - @route POST '/:id'
 */
-router.get('/', controller.findAll)
+router.get('/', [validateToken],controller.findAll)
 router.get('/findOne/:id', controller.findOne)
 router.get('/numberOfServices', controller.numberOfServices)
 router.post('', controller.newService)
