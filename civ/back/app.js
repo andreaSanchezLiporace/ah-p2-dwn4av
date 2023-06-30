@@ -12,7 +12,7 @@
 import express from 'express'
 import VehiclesRoutes from './routes/vehiculos.routes.js'
 import ServicesRoutes from './routes/servicios.routes.js'
-import AuthRoutes from './routes/auth.routes.js'
+import AuthRoutes from './routes/auth.account.routes.js'
 import cors from 'cors'
 
 /**

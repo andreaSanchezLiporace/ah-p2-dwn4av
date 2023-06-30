@@ -1,0 +1,28 @@
+VEHICULOS -> 
+crear un vehículo ->
+ver todos los vehículos ->
+ver un vehículo ->
+modificar un vehículo ->
+eliminar un vehículo ->
+
+SERVICIOS ->
+crear un servicio ->
+ver todos los servicios ->
+ver un servicio ->
+modificar un servicio ->
+eliminar un servicio ->
+
+CLIENTES (a desarrollar)
+EMPLEADOS (a desarrollar)
+
+CUENTA -> auth.account.routes.js
+crear cuenta: http://localhost:1905/api/auth/account
+contraseña ejemplo: Testing193!
+
+PERFIL -> auth.account.routes.js
+ : http://localhost:1905/api/auth/profile
+ : http://localhost:1905/api/auth/profile
+
+SESION -> auth.account.routes.js
+ : http://localhost:1905/api/auth/login
+ : http://localhost:1905/api/auth/logout
