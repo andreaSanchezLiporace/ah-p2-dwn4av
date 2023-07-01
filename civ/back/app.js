@@ -14,6 +14,7 @@ import VehiclesRoutes from './routes/vehiculos.routes.js'
 import ServicesRoutes from './routes/servicios.routes.js'
 import AuthRoutes from './routes/auth.account.routes.js'
 import cors from 'cors'
+import { verifyToken } from './services/auth.token.service.js'
 
 /**
  * Creo una instancia de la aplicación Express y define el número de puerto en el que se ejecutará el servidor.
@@ -28,6 +29,7 @@ const port = process.env.PORT || 1905
 */
 app.use(express.json())
 app.use(cors())
+app.use('/api', verifyToken)
 
 /**
  * Rutas vehículos: todas las rutas definidas en VehiclesRoutes se agregarán con el prefijo '/api/vehicles'.
