@@ -42,7 +42,20 @@ async function login(req, res) {
         .catch((error) => res.status(500).json({message: error.message}))
 }
 
+async function logout (req, res) {
+    const token = req.headers['auth-token']
+
+    return tokenService.deleteToken(token)
+        .then(() => {
+            res.status(200).json({message: 'La sesión se cerró correctamente'})
+        })
+        .catch((error) => {
+            res.status(400).json({error: {message: error.message}})
+        })
+}
+
 export {
     createAccount,
-    login
+    login,
+    logout
 }

@@ -7,6 +7,7 @@
 import express from 'express'
 import * as controller from '../controllers/auth.account.controller.js'
 import { accountValidate } from '../middlewares/auth.account.middlewares.js'
+import { validateToken } from '../middlewares/token.middlewares.js'
 
 /** Router de autenticación.*/
 const router = express.Router()
@@ -23,6 +24,6 @@ router.post('/account', [accountValidate], controller.createAccount)
 
 // SESSION
 router.post('/session', [accountValidate], controller.login)
-//router.delete('/logout', controller.logout)
+router.delete('/session', [validateToken], controller.logout)
 
 export default router

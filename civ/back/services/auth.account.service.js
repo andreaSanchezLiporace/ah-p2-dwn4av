@@ -58,7 +58,12 @@ async function login(account) {
     }
 }
 
+async function logout (token) {
+
+}
+
 export{
     createAccount,
-    login
+    login,
+    logout
 }
