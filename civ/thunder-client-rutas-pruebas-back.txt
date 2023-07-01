@@ -20,8 +20,8 @@ crear cuenta: http://localhost:1905/api/auth/account
 contraseña ejemplo: Testing193!
 
 PERFIL -> auth.account.routes.js
- : http://localhost:1905/api/auth/profile
- : http://localhost:1905/api/auth/profile
+POST : http://localhost:1905/api/auth/profile
+GET : http://localhost:1905/api/auth/profile
 
 SESION -> auth.account.routes.js
  login : http://localhost:1905/api/auth/session
