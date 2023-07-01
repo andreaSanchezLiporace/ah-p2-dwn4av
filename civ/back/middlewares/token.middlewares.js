@@ -22,7 +22,7 @@ async function validateToken(req, res, next){
     if (!token) {
         return res.status(401).json({error: {message: 'No se proporcionó un token'} })
     }
-    const account = authToken.verifyToken(token)
+    const account = await authToken.verifyToken(token)
     if (!account) {
         return res.status(401).json({error:{ message: 'El token ingresado es incorrecto'} })
     }
