@@ -14,7 +14,7 @@ import VehiclesRoutes from './routes/vehiculos.routes.js'
 import ServicesRoutes from './routes/servicios.routes.js'
 import AuthRoutes from './routes/auth.account.routes.js'
 import cors from 'cors'
-import { verifyToken } from './services/auth.token.service.js'
+import { validateToken } from './middlewares/token.middlewares.js'
 
 /**
  * Creo una instancia de la aplicación Express y define el número de puerto en el que se ejecutará el servidor.
@@ -29,15 +29,14 @@ const port = process.env.PORT || 1905
 */
 app.use(express.json())
 app.use(cors())
-app.use('/api', verifyToken)
 
 /**
  * Rutas vehículos: todas las rutas definidas en VehiclesRoutes se agregarán con el prefijo '/api/vehicles'.
  * Rutas servicios: todas las rutas definidas en ServicesRoutes se agregarán con el prefijo '/api/services'.
  * Rutas autenticación: todas las rutas definidas en AuthRoutes se agregarán con el prefijo '/api/auth'.
  */
-app.use('/api/vehicles', VehiclesRoutes)
-app.use('/api/services', ServicesRoutes)
+app.use('/api/vehicles', [validateToken], VehiclesRoutes)
+app.use('/api/services', [validateToken], ServicesRoutes)
 app.use('/api/auth', AuthRoutes)
 
 /** Inicia el servidor y escucha las solicitudes en el puerto especificado. */

@@ -27,7 +27,7 @@ router.all('*', accountValidate)
  * Ruta para crear un nuevo servicio - @route POST ''
  * Ruta para editar un servicio - @route POST '/:id'
 */
-router.get('/', [validateToken], controller.findAll)
+router.get('/', controller.findAll)
 router.get('/findOne/:id', controller.findOne)
 router.get('/numberOfServices', controller.numberOfServices)
 router.post('', controller.newService)

@@ -38,7 +38,7 @@ import Register from './pages/Register'
 const root = createBrowserRouter([
   {
     path: '/',
-    element: <RoutePrivate> <App /></RoutePrivate>,
+    element: <App />,
     errorElement: <PageNotFound />,
     children: [
       { path: '', element: <Home /> },

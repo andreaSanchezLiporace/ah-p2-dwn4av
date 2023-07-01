@@ -13,12 +13,7 @@ import { accountValidate } from '../middlewares/auth.account.middlewares.js'
 /** Router de vehículos */
 const router = express.Router();
 
-/**
- * Middleware de autorización que se ejecuta en todas las rutas definidas en este enrutador.
- * Verifica si el usuario está autorizado antes de procesar la solicitud.
 
-router.all('*', accountValidate)
-*/
 /**
  * Ruta para obtener todos los vehiculos - @route GET '/'
  * Ruta para obtener un vehiculo por ID - @route GET '/:domain'
@@ -26,7 +21,7 @@ router.all('*', accountValidate)
  * Ruta para editar un vehiculo - @route PATCH '/:domain'
  * Ruta para eliminar un vehiculo - @route DELETE '/:domain'
 */
-router.get('/', [validateToken], controller.findAll) // Cambiar nombre del método.
+router.get('/', controller.findAll) // Cambiar nombre del método.
 router.get('/:domain', controller.findOne)
 router.post('/', controller.createOne)
 router.patch('/:domain', controller.editOne)
