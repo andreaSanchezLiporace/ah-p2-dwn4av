@@ -40,3 +40,4 @@ Respuesta esperada:
 }
 
  logout: http://localhost:1905/api/auth/session
+DELETE se pasa por header auth-token con el token en el value
