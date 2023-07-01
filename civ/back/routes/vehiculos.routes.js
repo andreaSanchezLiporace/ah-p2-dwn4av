@@ -26,7 +26,7 @@ router.all('*', accountValidate)
  * Ruta para editar un vehiculo - @route PATCH '/:domain'
  * Ruta para eliminar un vehiculo - @route DELETE '/:domain'
 */
-router.get('/', controller.findAll) // Cambiar nombre del método.
+router.get('/', [validateToken], controller.findAll) // Cambiar nombre del método.
 router.get('/:domain', controller.findOne)
 router.post('/', controller.createOne)
 router.patch('/:domain', controller.editOne)

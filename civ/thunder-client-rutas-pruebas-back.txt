@@ -24,5 +24,19 @@ PERFIL -> auth.account.routes.js
  : http://localhost:1905/api/auth/profile
 
 SESION -> auth.account.routes.js
- : http://localhost:1905/api/auth/login
- : http://localhost:1905/api/auth/logout
+ login : http://localhost:1905/api/auth/session
+POST {
+        "userName": "prueba3",
+        "password": "Testing193!"
+     }
+Respuesta esperada: 
+{
+  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDllMTliZjcwNjY1ZGRkZDRmNDMwNTEiLCJ1c2VyTmFtZSI6InBydWViYTMiLCJwYXNzd29yZEhhc2giOiIkMmIkMTAkYmFHTG9Ndk5aNGlacGkxWng3REdqZVU3OHVwemNyRW9COUxuTWg2TjgvUkRWaWxFc2toSGEiLCJpYXQiOjE2ODgxNTE5MDB9.jXP_RxEIIPP3KHdGOpgQ5d2YCAAsPertqaatAXx2RzA",
+  "account": {
+    "_id": "649e19bf70665dddd4f43051",
+    "userName": "prueba3",
+    "passwordHash": "$2b$10$baGLoMvNZ4iZpi1Zx7DGjeU78upzcrEoB9LnMh6N8/RDVilEskhHa"
+  }
+}
+
+ logout: http://localhost:1905/api/auth/session
