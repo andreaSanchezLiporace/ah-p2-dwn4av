@@ -8,7 +8,7 @@ export async function findOne(id) {
     return API.call({uri: `services/findOne/${id}`, method: 'GET'})
 }
 
-async function newService(service) {
+export async function newService(service) {
     return fetch(`http://localhost:1905/api/services`, {
         method: 'post',
         headers: {
@@ -22,7 +22,7 @@ async function newService(service) {
     .catch(err => console.error('[services/newService]: ' + err))
 }
 
-async function editService(service, id){
+export async function editService(service, id){
     return fetch(`http://localhost:1905/api/services/${id}`,{
         method:'PATCH',
         headers: {

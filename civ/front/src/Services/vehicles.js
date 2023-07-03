@@ -8,7 +8,7 @@ export async function findOne(domain) {
     return API.call({uri: `vehicles/${domain}`, method: 'GET'})
 }
 
-async function newVehicle(vehicle) {
+export async function newVehicle(vehicle) {
     try {
         const response = await API.call({uri: 'vehicles/', method: 'POST', body: vehicle});
     
@@ -25,7 +25,7 @@ async function newVehicle(vehicle) {
     }
 }
 
-async function editVehicle(domain, vehicle) {
+export async function editVehicle(domain, vehicle) {
     try {
         const response = await API.call({ uri: `vehicles/${domain}`, method: 'PATCH', body: vehicle });
     
@@ -42,7 +42,7 @@ async function editVehicle(domain, vehicle) {
     }
 }
 
-async function deleteOne(domain) {
+export async function deleteOne(domain) {
     try {
         const response = await API.call({ uri: `vehicles/${domain}`, method: 'DELETE' });
         window.location.href = '/vehicles';
