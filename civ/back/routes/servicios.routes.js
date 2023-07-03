@@ -7,18 +7,9 @@
 */
 import express from 'express'
 import * as controller from '../controllers/servicios.controller.js'
-import { validateToken } from '../middlewares/token.middlewares.js'
-import { accountValidate } from '../middlewares/auth.account.middlewares.js'
 
 /** Router de servicios */
 const router = express.Router();
-
-/**
- * Middleware de autorización que se ejecuta en todas las rutas definidas en este enrutador.
- * Verifica si el usuario está autorizado antes de procesar la solicitud.
-
-router.all('*', accountValidate)
-*/
 
 /**
  * Ruta para obtener todos los servicios - @route GET '/'

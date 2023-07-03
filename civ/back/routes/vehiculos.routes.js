@@ -7,12 +7,10 @@
 */
 import express from 'express'
 import * as controller from '../controllers/vehiculos.controller.js'
-import { validateToken } from '../middlewares/token.middlewares.js'
-import { accountValidate } from '../middlewares/auth.account.middlewares.js'
+//import validateToken from '../middlewares/token.middlewares'
 
 /** Router de vehículos */
 const router = express.Router();
-
 
 /**
  * Ruta para obtener todos los vehiculos - @route GET '/'
