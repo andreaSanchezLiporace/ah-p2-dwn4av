@@ -5,6 +5,7 @@
  */
 import { database } from "./database.js"
 import bcrypt from 'bcrypt'
+import { createProfile } from './auth.profile.service.js';
 
 /** Colección en la base de datos que almacena las cuentas - @constant {string} */
 const COLLECTION_NAME = 'accounts'
@@ -23,6 +24,7 @@ async function createAccount(account) {
             const salt = await bcrypt.genSalt(10)
             newAccount.passwordHash = await bcrypt.hash(account.password, salt)
             await db.collection(COLLECTION_NAME).insertOne(newAccount)
+            await createProfile(newAccount);
             return newAccount
         } else {
             throw new Error('Ya existe una cuenta para el usuario que ingresó')
@@ -58,12 +60,7 @@ async function login(account) {
     }
 }
 
-async function logout (token) {
-
-}
-
 export{
     createAccount,
-    login,
-    logout
+    login
 }

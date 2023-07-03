@@ -1,8 +1,8 @@
 import { useState, useCallback, createRef } from 'react';
-import { useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom';
 import * as authService from '../Services/auth.services';
-import './../css/LoginPage.css'
-import './../css/Buttons.css'
+import './../css/LoginPage.css';
+import './../css/Buttons.css';
 
 function Register(){
     let navigate = useNavigate() 
@@ -145,7 +145,7 @@ function Register(){
                         </div>
                         <div className='buttons'>
                             <button type='submit' className='btn__home__create_account font-family-alata'>Crear cuenta</button>
-                        </div>
+                        </div>  
                     </form>
                 </div>
             </div>

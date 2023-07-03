@@ -1,5 +1,6 @@
 import { useState, useCallback, createRef } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { Link } from "react-router-dom";
 import * as authService from '../Services/auth.services';
 import './../css/LoginPage.css';
 
@@ -114,6 +115,7 @@ function Login () {
                         <div className='buttons'>
                             <button type='submit' className='btn__home__create_account font-family-alata'>Iniciar sesión</button>
                         </div>
+                        <p className='link__login__register_account'> Si no tenés cuenta, podés crearla <Link className="link__login__register_account_link" to={'/register'}> AQUÍ </Link></p>
                     </form>
                 </div>
             </div>

@@ -21,7 +21,8 @@ async function createProfile(account, profile){
     const newProfile = {
         ...profile,
         userName: account.userName,
-        _id: new ObjectId(account._id)
+        _id: new ObjectId(account._id),
+        avatar: '/avatar-default.png'
     }
     await client.connect()
 

@@ -37,7 +37,7 @@ function Navbar(){
                 <ul className="navbar-nav mr-auto">
                     {!logged ?
                         <>
-                            <li className="nav-item"><Link className="nav-link font-family-alata" to={'/profile'} onClick={() => handleNavbarCollapse()}> MI PERFIL </Link></li>
+                            <li className="nav-item"><Link className="nav-link font-family-alata" to={'/profile'} onClick={() => handleNavbarCollapse()}> PERFIL </Link></li>
                             <li className="nav-item"><Link className="nav-link font-family-alata" to={'/vehicles'} onClick={() => handleNavbarCollapse()}> VEHÍCULOS </Link></li>
                             <li className="nav-item"><Link className="nav-link font-family-alata" to={'/services'} onClick={() => handleNavbarCollapse()}> SERVICIOS </Link></li>
                             <li className="nav-item"> <Link className="nav-link font-family-alata" to={'#'} onClick={logout}> CERRAR SESIÓN ({profile.userName})</Link></li>

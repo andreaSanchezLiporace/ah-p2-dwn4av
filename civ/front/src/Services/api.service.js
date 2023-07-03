@@ -1,5 +1,5 @@
 export async function call ({uri, method = 'GET', body = undefined}) {
-    return fetch(`http://localhost:1905/api/auth/${uri}`, {
+    return fetch(`http://localhost:1905/api/${uri}`, {
         headers: {
             'auth-token': localStorage.getItem('token'),
             'Content-Type': 'application/json'

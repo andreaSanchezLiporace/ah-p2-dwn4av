@@ -6,12 +6,12 @@ import './../../css/Vehicles/vehicles.css'
 function Vehicles() {
     const [vehicles, setVehicles] = useState([])
     
-    useEffect(() => {
+    useEffect(()=>{
         VehiclesService.findAll()
-            .then(vehicles => {
-                    setVehicles(vehicles)
-                })
-                window.scroll(0,0)
+            .then(vehicles =>{
+                setVehicles(vehicles)
+            })
+            window.scroll(0,0)
     }, [])
 
     const handleSubmitDelete = (e) => {

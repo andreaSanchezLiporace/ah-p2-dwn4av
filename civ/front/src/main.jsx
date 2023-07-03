@@ -16,12 +16,12 @@ import Register from './pages/Register'
   /** Childrens */
   import Profile from './pages/Profile/Profile'
   //import EditProfile from './pages/Profile/EditProfile'
-  //import Vehicles from './pages/Vehicles/Vehicles'
-  //import EditVehicle from './pages/Vehicles/EditVehicle'
-  //import NewVehicle from './pages/Vehicles/NewVehicle'
-  //import Services from './pages/Services/Services'
-  //import NewService from './pages/Services/NewService'
-  //import EditService from './pages/Services/EditService'
+  import Vehicles from './pages/Vehicles/Vehicles'
+  import EditVehicle from './pages/Vehicles/EditVehicle'
+  import NewVehicle from './pages/Vehicles/NewVehicle'
+  import Services from './pages/Services/Services'
+  import NewService from './pages/Services/NewService'
+  import EditService from './pages/Services/EditService'
 
 /** Rutas del sitio */
 const router = createBrowserRouter([
@@ -40,12 +40,12 @@ const router = createBrowserRouter([
       //{ path: '/clients/new-client', element: <NewClient /> }, // DESARROLLAR BACK Y FRONT
       //{ path: '/clients/:clientId/edit', element: <EditClient /> }, // DESARROLLAR BACK Y FRONT
       // Habilitar rutas a medida que se van cargando las vistas y refactorizandolas
-      //{ path: '/vehicles', element: <Vehicles /> },
-      //{ path: '/vehicles/new-vehicle', element: <NewVehicle /> },
-      //{ path: '/vehicles/:domain/edit', element: <EditVehicle /> },
-      //{ path: '/services', element: <Services /> },
-      //{ path: '/services/new-service', element: <NewService /> },
-      //{ path: '/services/:id/edit', element: <EditService /> }
+      { path: '/vehicles', element: <Vehicles /> },
+      { path: '/vehicles/new-vehicle', element: <NewVehicle /> },
+      { path: '/vehicles/:domain/edit', element: <EditVehicle /> },
+      { path: '/services', element: <Services /> },
+      { path: '/services/new-service', element: <NewService /> },
+      { path: '/services/:id/edit', element: <EditService /> }
     ]
   },
   { path:'/', element: <Home />,},
