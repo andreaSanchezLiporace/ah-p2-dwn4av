@@ -32,7 +32,7 @@ const router = createBrowserRouter([
     children: [
       { path: '/profile', element: <Profile /> }, // MAQUETAR VISTA
       //{ path: '/profile/:profileId/edit', element: <EditProfile /> }, // DESARROLLAR BACK Y FRONT
-      { path: '/docs', element: <Blog /> }, 
+      //{ path: '/docs', element: <Blog /> }, 
       //{ path: '/employees', element: <Employees /> },
       //{ path: '/employees/new-employee', element: <NewEmployee /> }, // DESARROLLAR BACK Y FRONT
       //{ path: '/employees/:employeeId/edit', element: <EditEmployee /> }, // DESARROLLAR BACK Y FRONT

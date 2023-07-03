@@ -1,23 +1,18 @@
 import { useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom"
+import { Link } from "react-router-dom"
 import * as VehiclesService from '../../Services/vehicles'
-
 import './../../css/Vehicles/vehicles.css'
 
 function Vehicles() {
-    let navigate = useNavigate()
     const [vehicles, setVehicles] = useState([])
     
     useEffect(() => {
-        const userName = localStorage.getItem('userName')
-        if (userName) {
-            VehiclesService.findAll()
-                .then(vehicles => setVehicles(vehicles))
-            window.scroll(0,0)
-        } else {
-            navigate('/', {replace: true})
-        }
-    }, [navigate])
+        VehiclesService.findAll()
+            .then(vehicles => {
+                    setVehicles(vehicles)
+                })
+                window.scroll(0,0)
+    }, [])
 
     const handleSubmitDelete = (e) => {
         e.preventDefault()

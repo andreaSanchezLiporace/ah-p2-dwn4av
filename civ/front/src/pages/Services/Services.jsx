@@ -1,23 +1,18 @@
 import { useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom"
+import { Link } from "react-router-dom"
 import * as ServicesService from '../../Services/services'
-
 import './../../css/Services/services.css'
 
 function Services() {
-    let navigate = useNavigate()
     const [services, setServices] = useState([])
 
     useEffect(() => {
-        const userName = localStorage.getItem('userName')
-        if (userName) {
-            ServicesService.findAll()
-                .then(services => setServices(services))
+        ServicesService.findAll()
+            .then(services => {
+                setServices(services)
+            })
             window.scroll(0,0)
-        } else {
-            navigate('/', {replace: true})
-        }
-    }, [navigate])
+    }, [])
 
     return (
         <div className="services">
@@ -27,10 +22,7 @@ function Services() {
             <div className="content">
                 <div className="table">
                     <div className="link">
-                        <Link 
-                            to={`/services/new-service`}
-                            className="btn__load-new"
-                        >
+                        <Link to={`/services/new-service`} className="btn__load-new">
                             Ingresar Nuevo Servicio
                         </Link>
                     </div>

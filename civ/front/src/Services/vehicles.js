@@ -1,7 +1,15 @@
+import API from './api.service'
+
+export async function findAll() {
+    return API.call({uri: 'vehicles', method: 'GET'})
+}
+
+
+
 /**
  * Returns an object with the data of all the vehicles.
  * @returns {Promise<any>}
- */
+
 async function findAll(){
     return fetch(`http://localhost:1905/api/vehicles`, {
         headers: {
@@ -10,6 +18,7 @@ async function findAll(){
     })
         .then(response => response.json())
 }
+ */
 
 /**
  * Returns an object with the vehicle's data. Receives as parameter the vehicle domain.
@@ -136,7 +145,7 @@ async function patchEndService({id}) {
     .catch(err => console.error('[vehiculos.services.js-121]Error: ' + err))
 }
 
-export {
+export default {
     findAll,
     findOne,
     newVehicle,

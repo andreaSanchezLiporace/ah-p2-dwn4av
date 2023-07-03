@@ -1,0 +1,10 @@
+[{
+  "_id": {
+    "$oid": "649e19bf70665dddd4f43051"
+  },
+  "userName": "prueba3",
+  "password": "Testing193!",
+  "name": "Soy tu prueba 1 de perfil",
+  "avatar": "https://unavatar.io/theregext",
+  "email": "prueba5@gmail.com"
+}]

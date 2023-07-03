@@ -1,12 +1,11 @@
+import API from './api.service'
+
+export async function findAll() {
+    return API.call({uri: 'services', method: 'GET'})
+}
+
+
 /**
-    import API from './api.service'
-
-    export async function findAll() {
-        return API.call({uri: 'services', method: 'GET'})
-    }
-
-
- */
 async function findAll() {
     return fetch(`http://localhost:1905/api/services`, {
         headers: {
@@ -16,7 +15,7 @@ async function findAll() {
     .then(response => response.json())
     .catch(err => console.error('[services/findAll]: ' + err))
 }
-
+ */
 async function newService(service) {
     return fetch(`http://localhost:1905/api/services`, {
         method: 'post',
@@ -68,7 +67,7 @@ async function numberOfServices() {
         .catch(err => console.error('[services/numberOfServices]: ' + err))
 }
 
-export {
+export default {
     findAll,
     newService,
     findOne,
