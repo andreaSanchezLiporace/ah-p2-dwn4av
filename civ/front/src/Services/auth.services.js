@@ -8,8 +8,9 @@ export async function logout() {
     return API.call({uri: 'session', method: 'DELETE'})
 }
 
-export async function register({userNameName, password}) {
-    return API.call({uri: 'account', method: 'POST', body: {userNameName, password}})
+export async function register({userName, password}) {
+    console.log(userName, password)
+    return API.call({uri: 'account', method: 'POST', body: {userName, password}})
 }
 
 export default{

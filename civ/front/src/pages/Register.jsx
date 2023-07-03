@@ -47,7 +47,7 @@ function Register(){
             setError('Debés completar correctamente todos los campos requeridos. Volvé a intentarlo');
             return;
         }
-        authService.register(userName, password)
+        authService.register({userName, password})
             .then(response => {
                 localStorage.setItem('token', response.token);
                 navigate('/profile', { replace: true });
