@@ -1,7 +1,6 @@
 import { useState, createRef, useEffect } from 'react';
 import { Link } from "react-router-dom"
 import { useSession } from "../contexts/session.context"
-import '../css/Header'
 
 function Navbar(){
     const {profile, logout} = useSession()
@@ -21,8 +20,8 @@ function Navbar(){
     }
 
     useEffect(() => {
-        const user = localStorage.getItem('user')
-        if (user) {
+        const userName = localStorage.getItem('userName')
+        if (userName) {
             setLogged(true)
         }
     }, [])

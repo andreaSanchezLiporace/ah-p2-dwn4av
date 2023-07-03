@@ -24,7 +24,7 @@ import Register from './pages/Register'
   //import EditService from './pages/Services/EditService'
 
 /** Rutas del sitio */
-const root = createBrowserRouter([
+const router = createBrowserRouter([
   {
     path: '/',
     element: <RoutePrivate><App /></RoutePrivate>,
@@ -50,13 +50,13 @@ const root = createBrowserRouter([
   },
   { path:'/', element: <Home />,},
   { path:'/blog', element: <Blog />,},
-  { path:'/login', element: <Login />, /* element: <Login onLogin={onLogin}/>,*/},
-  { path:'/register', element: <Register />, /* element: <Register onLogin={onLogin}/>,*/},
+  { path:'/login', element: <Login />,},
+  { path:'/register', element: <Register />,},
 ])
 
 ReactDOM.createRoot(document.getElementById('root'))
 .render(
   <React.StrictMode>
-    <RouterProvider root={root}/>
+    <RouterProvider router={router}/>
   </React.StrictMode>
 )

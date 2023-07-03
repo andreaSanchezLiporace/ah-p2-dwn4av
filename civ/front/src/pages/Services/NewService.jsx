@@ -23,14 +23,14 @@ function NewService() {
     const [error, setError] = useState('')
 
     useEffect(() => {
-        const user = localStorage.getItem('user')
+        const userName = localStorage.getItem('userName')
 
-        if(!user) {
+        if(!userName) {
             navigate('/', {replace: true})
             return
         }
 
-        setMechanic(user.replace(/[ '"]+/g, ''))
+        setMechanic(userName.replace(/[ '"]+/g, ''))
 
         VehiclesServices.findAll()
             .then(vehicles => setVehicles(vehicles))

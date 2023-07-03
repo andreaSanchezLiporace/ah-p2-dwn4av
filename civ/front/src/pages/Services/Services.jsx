@@ -9,8 +9,8 @@ function Services() {
     const [services, setServices] = useState([])
 
     useEffect(() => {
-        const user = localStorage.getItem('user')
-        if (user) {
+        const userName = localStorage.getItem('userName')
+        if (userName) {
             ServicesService.findAll()
                 .then(services => setServices(services))
             window.scroll(0,0)

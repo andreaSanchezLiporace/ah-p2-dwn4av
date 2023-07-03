@@ -31,7 +31,7 @@ function SessionProvider({children}){
     }, [navigate])
 
     useEffect(() => {
-        profileService.getCurrent()
+        profileService.currentProfile()
         .then((profile) => {
             setProfile(profile)
         })

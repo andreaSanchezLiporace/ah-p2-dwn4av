@@ -6,7 +6,7 @@ import './../css/LoginPage.css';
 function Login () {
     const navigate = useNavigate()
 
-    const [user, setUser] = useState('');
+    const [userName, setuserName] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('')
 
@@ -16,8 +16,8 @@ function Login () {
 
     const inputChange = (e) => {
         switch (e.target.name) {
-            case 'user':
-                setUser(e.target.value)
+            case 'userName':
+                setuserName(e.target.value)
                 e.target.value !== '' ? spanRequiredName.current.className = 'd-none' : spanRequiredName.current.className = 'span-info'
                 break;
             case 'password':
@@ -32,17 +32,17 @@ function Login () {
     const OnSubmit = useCallback((e) => {
         e.preventDefault()
 
-        authService.login({user, password})
+        authService.login({userName, password})
         .then(({account, token}) => {
             console.log("Sesión iniciada", {account, token})
             setError('')
             localStorage.setItem('token', token)
             navigate('/profile', {replace: true})
         })
-        .catch(error => {
-            setError(error.error.message)
+        .catch(err => {
+            setError(err.error.message)
         })
-    }, [user, password, navigate, setError])
+    }, [userName, password, navigate, setError])
 
     const closeBtnAlert = () => {
         setError('')
@@ -78,11 +78,10 @@ function Login () {
                     </div>
                     <form className="login-form" onSubmit={OnSubmit}>
                         <div>
-                            <label htmlFor="user">
-                                Nombre de usuario:
+                            <label htmlFor="userName">
                                 <input 
-                                    name='user' 
-                                    id='user' 
+                                    name='userName' 
+                                    id='userName' 
                                     type='text' 
                                     autoComplete='off'
                                     placeholder='Nombre de usuario' 
@@ -90,7 +89,7 @@ function Login () {
                                     required
                                     onFocus={(e) => {if (e.target.value === '') spanRequiredName.current.className = 'span-info'}}
                                     onChange={inputChange}
-                                    value={user}
+                                    value={userName}
                                 />            
                                 <span className='d-none' ref={spanRequiredName}>Campo requerido </span>
                             </label>

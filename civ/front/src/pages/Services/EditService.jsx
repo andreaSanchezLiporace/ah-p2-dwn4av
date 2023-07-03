@@ -22,9 +22,9 @@ function EditService() {
     const [error, setError] = useState('')
 
     useEffect(() => {
-        const user = localStorage.getItem('user')
+        const userName = localStorage.getItem('userName')
 
-        if(!user) {
+        if(!userName) {
             navigate('/', {replace: true})
             return
         }

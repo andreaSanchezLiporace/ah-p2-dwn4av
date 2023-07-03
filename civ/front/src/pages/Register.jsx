@@ -1,35 +1,26 @@
-import { useState, useEffect, createRef } from "react";
-import * as AuthService from '../Services/auth.services.js'
+import { useState, useCallback, createRef } from 'react';
 import { useNavigate } from 'react-router-dom'
+import * as authService from '../Services/auth.services';
 import './../css/LoginPage.css'
 import './../css/Buttons.css'
-import PropTypes from "prop-types";
 
-//function Register({ onLogin }){
 function Register(){
+    let navigate = useNavigate() 
+
+    const [userName, setuserName] = useState('')
+    const [password, setPassword] = useState('')
+    const [passwordConfirmed, setPasswordConfirmed] = useState('')
+    const [error, setError] = useState('')
+
     const spanRequiredName = createRef()
     const spanRequiredPassword = createRef()
     const spanRequiredPasswordConfirmed = createRef()
     const divAlert = createRef()
 
-    const [user, setUser] = useState('')
-    const [password, setPassword] = useState('')
-    const [passwordConfirmed, setPasswordConfirmed] = useState('')
-    const [error, setError] = useState('')
-
-    let navigate = useNavigate()
-
-    useEffect(() => {
-        const user = localStorage.getItem('user')
-        if(user) {
-            navigate('/', {replace: true})
-        }
-    }, [navigate])
-
-    const inputChange = e => {
+    const inputChange = (e) => {
         switch (e.target.name) {
-            case 'user':
-                setUser(e.target.value)
+            case 'userName':
+                setuserName(e.target.value)
                 e.target.value !== '' ? spanRequiredName.current.className = 'd-none' : spanRequiredName.current.className = 'span-info'
                 break;
             case 'password':
@@ -45,13 +36,30 @@ function Register(){
         }
     }
 
-    const closeBtnAlert = () => {
-        setError('')
-    }
+    const handleRegister = useCallback((e) => {
+        e.preventDefault();
 
+        if (userName === '' || password === '' || passwordConfirmed === '') {
+            setError('Debés completar todos los campos requeridos. Volvé a intentarlo');
+            return;
+        }
+        if (password !== passwordConfirmed) {
+            setError('Debés completar correctamente todos los campos requeridos. Volvé a intentarlo');
+            return;
+        }
+        authService.register(userName, password)
+            .then(response => {
+                localStorage.setItem('token', response.token);
+                navigate('/profile', { replace: true });
+            })
+            .catch(error => setError(error.message));
+    }, [userName, password, passwordConfirmed, navigate, setError]);
+
+    /*
     const handleRegister = (e) => {
         e.preventDefault()
-        if (user === '' || password === '' || passwordConfirmed === '') {
+
+        if (userName === '' || password === '' || passwordConfirmed === '') {
             setError('Debés completar todos los campos requeridos. Volvé a intentarlo')
             return
         }
@@ -59,9 +67,15 @@ function Register(){
             setError('Debés completar correctamente todos los campos requeridos. Volvé a intentarlo')
             return
         }
-        AuthService.register(user, password)
-            .then(response => onLogin(response.user.user, response.token))
+        authService.register(userName, password)
+            .then(response => login(response.userName.userName, response.token))
             .catch(error => setError(error.message))
+            
+    }, [userName, password, navigate, setError])
+    */
+
+    const closeBtnAlert = () => {
+        setError('')
     }
     
     return(
@@ -97,13 +111,13 @@ function Register(){
                     <form className="login-form" onSubmit={handleRegister}>
                         <div>
                             <label 
-                                htmlFor="user" 
+                                htmlFor="userName" 
                                 className='visually-hidden'
                             >
                                 Nombre de usuario</label>
                             <input 
-                                name='user' 
-                                id='user' 
+                                name='userName' 
+                                id='userName' 
                                 type='text' 
                                 autoComplete='off'
                                 placeholder='Nombre de usuario' 
@@ -111,7 +125,7 @@ function Register(){
                                 required
                                 onFocus={(e) => {if (e.target.value === '') spanRequiredName.current.className = 'span-info'}}
                                 onChange={(e) => inputChange(e)}
-                                value={user}/>
+                                value={userName}/>
                             <span 
                                 className='d-none'
                                 ref={spanRequiredName}>Campo requerido</span>
@@ -157,9 +171,5 @@ function Register(){
         </div>
     )
 }
-
-Register.propTypes = {
-    onLogin: PropTypes.func.isRequired,
-};
 
 export default Register
