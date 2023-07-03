@@ -50,29 +50,10 @@ function Register(){
         authService.register({userName, password})
             .then(response => {
                 localStorage.setItem('token', response.token);
-                navigate('/profile', { replace: true });
+                navigate('/login', { replace: true });
             })
             .catch(error => setError(error.message));
     }, [userName, password, passwordConfirmed, navigate, setError]);
-
-    /*
-    const handleRegister = (e) => {
-        e.preventDefault()
-
-        if (userName === '' || password === '' || passwordConfirmed === '') {
-            setError('Debés completar todos los campos requeridos. Volvé a intentarlo')
-            return
-        }
-        if (password !== passwordConfirmed) {
-            setError('Debés completar correctamente todos los campos requeridos. Volvé a intentarlo')
-            return
-        }
-        authService.register(userName, password)
-            .then(response => login(response.userName.userName, response.token))
-            .catch(error => setError(error.message))
-            
-    }, [userName, password, navigate, setError])
-    */
 
     const closeBtnAlert = () => {
         setError('')
