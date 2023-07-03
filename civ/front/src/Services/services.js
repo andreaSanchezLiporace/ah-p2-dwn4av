@@ -1,11 +1,20 @@
+/**
+    import API from './api.service'
+
+    export async function findAll() {
+        return API.call({uri: 'services', method: 'GET'})
+    }
+
+
+ */
 async function findAll() {
     return fetch(`http://localhost:1905/api/services`, {
         headers: {
             'auth-token': localStorage.getItem('auth-token')
         }
     })
-        .then(response => response.json())
-        .catch(err => console.error('[services/findAll]: ' + err))
+    .then(response => response.json())
+    .catch(err => console.error('[services/findAll]: ' + err))
 }
 
 async function newService(service) {

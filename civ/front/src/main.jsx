@@ -14,6 +14,8 @@ import Blog from './pages/Blog'
 import Login from './pages/Login'
 import Register from './pages/Register'
   /** Childrens */
+  import Profile from './pages/Profile/Profile'
+  //import EditProfile from './pages/Profile/EditProfile'
   import Vehicles from './pages/Vehicles/Vehicles'
   import EditVehicle from './pages/Vehicles/EditVehicle'
   import NewVehicle from './pages/Vehicles/NewVehicle'
@@ -21,28 +23,22 @@ import Register from './pages/Register'
   import NewService from './pages/Services/NewService'
   import EditService from './pages/Services/EditService'
 
-/** 
- * Rutas del sitio
- * A futuro:
- * profile -> profile { path: '/profile', element: <Profile /> }, 
- *            :clientId/edit { path: '/profile/:clientId/edit', element: <EditProfile /> },
- * 
- * clients -> clients { path: '/clients', element: <Clients /> },
- *            new-client { path: '/clients/new-client', element: <NewClient /> }, 
- *            :clientId/edit { path: '/clients/:clientId/edit', element: <EditClient /> },
- * 
- * employees -> employees { path: '/employees', element: <Employees /> },
- *              new-employee { path: '/employees/new-employee', element: <NewEmployee /> },  
- *              :employeeId/edit { path: '/employees/:employeeId/edit', element: <EditEmployee /> },
-*/
+/** Rutas del sitio */
 const root = createBrowserRouter([
   {
     path: '/',
-    element: <App />,
+    element: <RoutePrivate><App /></RoutePrivate>,
     errorElement: <PageNotFound />,
     children: [
-      { path: '', element: <Home /> },
-      { path: '/blog', element: <Blog /> },
+      { path: '/profile', element: <Profile /> }, // MAQUETAR VISTA
+      //{ path: '/profile/:profileId/edit', element: <EditProfile /> }, // DESARROLLAR BACK Y FRONT
+      { path: '/docs', element: <Blog /> }, 
+      //{ path: '/employees', element: <Employees /> },
+      //{ path: '/employees/new-employee', element: <NewEmployee /> }, // DESARROLLAR BACK Y FRONT
+      //{ path: '/employees/:employeeId/edit', element: <EditEmployee /> }, // DESARROLLAR BACK Y FRONT
+      //{ path: '/clients', element: <Clients /> },
+      //{ path: '/clients/new-client', element: <NewClient /> }, // DESARROLLAR BACK Y FRONT
+      //{ path: '/clients/:clientId/edit', element: <EditClient /> }, // DESARROLLAR BACK Y FRONT
       { path: '/vehicles', element: <Vehicles /> },
       { path: '/vehicles/new-vehicle', element: <NewVehicle /> },
       { path: '/vehicles/:domain/edit', element: <EditVehicle /> },
@@ -51,6 +47,8 @@ const root = createBrowserRouter([
       { path: '/services/:id/edit', element: <EditService /> }
     ]
   },
+  { path:'/', element: <Home />,},
+  { path:'/blog', element: <Blog />,},
   { path:'/login', element: <Login />, /* element: <Login onLogin={onLogin}/>,*/},
   { path:'/register', element: <Register />, /* element: <Register onLogin={onLogin}/>,*/},
 ])

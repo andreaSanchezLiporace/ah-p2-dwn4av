@@ -5,7 +5,8 @@ import './../css/LoginPage.css'
 import './../css/Buttons.css'
 import PropTypes from "prop-types";
 
-function Register({ onLogin }){
+//function Register({ onLogin }){
+function Register(){
     const spanRequiredName = createRef()
     const spanRequiredPassword = createRef()
     const spanRequiredPasswordConfirmed = createRef()

@@ -1,28 +1,20 @@
-import { useState, useEffect, createRef } from "react";
+import { useState, useCallback, createRef } from 'react';
 import { useNavigate } from 'react-router-dom';
-import * as AuthService from '../Services/auth.services.js';
+import * as authService from '../Services/auth.services';
 import './../css/LoginPage.css';
-import PropTypes from "prop-types";
 
-function Login ({ onLogin }) {
-    const spanRequiredName = createRef()
-    const spanRequiredPassword = createRef()
-    const divAlert = createRef()
+function Login () {
+    const navigate = useNavigate()
 
     const [user, setUser] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('')
 
-    let navigate = useNavigate()
+    const spanRequiredName = createRef()
+    const spanRequiredPassword = createRef()
+    const divAlert = createRef()
 
-    useEffect(() => {
-        const AUTH_TOKEN = localStorage.getItem('auth-token')
-        if(AUTH_TOKEN) {
-            navigate('/', {replace: true})
-        }
-    }, [navigate])
-
-    const inputChange = e => {
+    const inputChange = (e) => {
         switch (e.target.name) {
             case 'user':
                 setUser(e.target.value)
@@ -37,20 +29,23 @@ function Login ({ onLogin }) {
         }
     }
 
+    const OnSubmit = useCallback((e) => {
+        e.preventDefault()
+
+        authService.login({user, password})
+        .then(({account, token}) => {
+            console.log("Sesión iniciada", {account, token})
+            setError('')
+            localStorage.setItem('token', token)
+            navigate('/profile', {replace: true})
+        })
+        .catch(error => {
+            setError(error.error.message)
+        })
+    }, [user, password, navigate, setError])
+
     const closeBtnAlert = () => {
         setError('')
-    }
-
-    const handleSubmit = (e) => {
-        e.preventDefault()
-        if(user !== '' && password !== '') {
-            AuthService.login(user, password)
-                .then(response => onLogin(response.user.user, response.token))
-                .catch(error => setError(error.message))
-        } else {
-            setError('Debés completar todos los campos requeridos. Volvé a intentarlo')
-            return
-        }
     }
 
     return(
@@ -81,43 +76,41 @@ function Login ({ onLogin }) {
                     <div className='title'>
                         <h2 className='font-family-alata'>Iniciar sesión</h2>
                     </div>
-                    <form className="login-form" onSubmit={handleSubmit}>
+                    <form className="login-form" onSubmit={OnSubmit}>
                         <div>
-                            <label 
-                                htmlFor="user" 
-                                className='visually-hidden'
-                            >
-                                Nombre de usuario</label>
-                            <input 
-                                name='user' 
-                                id='user' 
-                                type='text' 
-                                autoComplete='off'
-                                placeholder='Nombre de usuario' 
-                                aria-label='Nombre de usuario'
-                                required
-                                onFocus={(e) => {if (e.target.value === '') spanRequiredName.current.className = 'span-info'}}
-                                onChange={(e) => inputChange(e)}
-                                value={user}/>
-                            <span 
-                                className='d-none'
-                                ref={spanRequiredName}>Campo requerido</span>
+                            <label htmlFor="user">
+                                Nombre de usuario:
+                                <input 
+                                    name='user' 
+                                    id='user' 
+                                    type='text' 
+                                    autoComplete='off'
+                                    placeholder='Nombre de usuario' 
+                                    aria-label='Nombre de usuario'
+                                    required
+                                    onFocus={(e) => {if (e.target.value === '') spanRequiredName.current.className = 'span-info'}}
+                                    onChange={inputChange}
+                                    value={user}
+                                />            
+                                <span className='d-none' ref={spanRequiredName}>Campo requerido </span>
+                            </label>
                         </div>
                         <div>
-                            <input 
-                                name="password" 
-                                id="password" 
-                                type="password" 
-                                placeholder="Contraseña" 
-                                aria-label='Contraseña'
-                                autoComplete=''
-                                required
-                                onFocus={(e) => {if (e.target.value === '') spanRequiredPassword.current.className = 'span-info'}}
-                                onChange={(e) => inputChange(e)}
-                                value={password}/>
-                            <span 
-                                className='d-none'
-                                ref={spanRequiredPassword}>Campo requerido</span>
+                            <label htmlFor="pass">
+                                <input 
+                                    name="password" 
+                                    id="password" 
+                                    type="password" 
+                                    placeholder="Contraseña" 
+                                    aria-label='Contraseña'
+                                    autoComplete=''
+                                    required
+                                    onFocus={(e) => {if (e.target.value === '') spanRequiredPassword.current.className = 'span-info'}}
+                                    onChange={inputChange}
+                                    value={password}
+                                />
+                                <span className='d-none' ref={spanRequiredPassword}> Campo requerido </span>
+                            </label>
                         </div>
                         <div className='buttons'>
                             <button type='submit' className='btn__home__create_account font-family-alata'>Iniciar sesión</button>
@@ -128,9 +121,9 @@ function Login ({ onLogin }) {
         </div>
     )
 }
-
+/*
 Login.propTypes = {
     onLogin: PropTypes.func.isRequired,
-};
+};*/
 
 export default Login;
