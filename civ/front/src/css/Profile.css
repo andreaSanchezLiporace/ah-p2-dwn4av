@@ -1,0 +1,5 @@
+.card__profile {
+    min-height: 500px;
+    outline: 1px solid #1F4866;
+    box-shadow: 5px 5px 5px #1f4866;
+}

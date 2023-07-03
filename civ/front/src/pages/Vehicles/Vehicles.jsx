@@ -27,12 +27,7 @@ function Vehicles() {
             <div className="content">
                 <div className="table">
                     <div className="link">
-                        <Link 
-                            to={`/vehicles/new-vehicle`} 
-                            className="btn__load-new"
-                        >
-                            Ingresar Nuevo Vehículo
-                        </Link>
+                        <Link to={`/vehicles/new-vehicle`} className="btn__load-new"> Ingresar Nuevo Vehículo </Link>
                     </div>
                     <div className="listing">
                         <div className="header">
@@ -49,47 +44,19 @@ function Vehicles() {
                         </div>
                         <div className="data">
                             {vehicles.map((vehicle, i) => 
-                            // TO-DO: INCLUIR EN UN COMPONENTE.
-                                <div
-                                    className="vehicle"
-                                    key={i}
-                                >
-                                    <div className="info">
-                                        <p>{ `${vehicle.make} ${vehicle.model || ''}` }</p>
-                                    </div>
-                                    <div className="info">
-                                        <p>{ vehicle.domain }</p>
-                                    </div>
-                                    <div className="info">
-                                        <p>{ vehicle.type || '' }</p>
-                                    </div>
-                                    <div className="info">
-                                        <p>{ vehicle.color || '' }</p>
-                                    </div>
-                                    <div className="info">
-                                        <p>{ vehicle.year || '' }</p>
-                                    </div>
-                                    <div className="info">
-                                        <p>{ vehicle.insurance || '' }</p>
-                                    </div>
-                                    <div className="info info-buttons">
-                                        {/* <Link to="#" className="btn__see-more">Ver</Link> */}
-                                        <span className="text-muted">* Próximamente</span>
-                                    </div>
-                                    <div className="info info-buttons">
-                                        <Link 
-                                            to={`/vehicles/${vehicle.domain}/edit`} 
-                                            className="btn__edit"
-                                        >
-                                            Consultar
-                                        </Link>
+                                // TO-DO: INCLUIR EN UN COMPONENTE.
+                                <div className="vehicle" key={i}>
+                                    <div className="info"> <p>{ `${vehicle.make} ${vehicle.model || ''}` }</p> </div>
+                                    <div className="info"> <p>{ vehicle.domain }</p> </div>
+                                    <div className="info"> <p>{ vehicle.type || '' }</p> </div>
+                                    <div className="info"> <p>{ vehicle.color || '' }</p> </div>
+                                    <div className="info"> <p>{ vehicle.year || '' }</p> </div>
+                                    <div className="info"> <p>{ vehicle.insurance || '' }</p> </div>
+                                    <div className="info info-buttons"> {/* <Link to="#" className="btn__see-more">Ver</Link> */} <span className="text-muted">* Próximamente</span> </div>
+                                    <div className="info info-buttons"> 
+                                        <Link to={`/vehicles/${vehicle.domain}/edit`} className="btn__edit"> Consultar </Link>
                                         <div className="btn__delete">
-                                            <form 
-                                                onSubmit={handleSubmitDelete} 
-                                                name={vehicle.domain}
-                                            >
-                                                <button type="submit">Eliminar</button>
-                                            </form>
+                                            <form onSubmit={handleSubmitDelete} name={vehicle.domain}> <button type="submit">Eliminar</button> </form>
                                         </div>
                                     </div>
                                 </div>
