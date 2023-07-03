@@ -13,7 +13,7 @@ export async function newService(service) {
         method: 'post',
         headers: {
             'Content-Type': 'application/json',
-            'auth-token': localStorage.getItem('auth-token')
+            'auth-token': localStorage.getItem('token')
         },
         body: JSON.stringify(service)
     })
@@ -27,7 +27,7 @@ export async function editService(service, id){
         method:'PATCH',
         headers: {
             'Content-Type': 'application/json',
-            'auth-token': localStorage.getItem('auth-token')
+            'auth-token': localStorage.getItem('token')
         },
         body: JSON.stringify(service)
     })
