@@ -1,17 +1,14 @@
 import { useEffect, useState } from 'react'
-import { Link, useNavigate } from "react-router-dom"
+import { Link } from "react-router-dom"
 import * as VehiclesServices from '../../Services/vehicles'
 import * as ServicesServices from '../../Services/services'
 
 import './../../css/Services/newService.css'
 
 function NewService() {
-    let navigate = useNavigate()
     const date = new Date().getDate()+'/'+(new Date().getMonth()+1)+'/'+new Date().getFullYear()
-    const [mechanic, setMechanic] = useState('')
-
+    //const [mechanic, setMechanic] = useState('')
     const [vehicles, setVehicles] = useState([])
-
     const [domain, setDomain] = useState('')
     const [dni, setDni] = useState(0)
     const [order, setOrder] = useState('')
@@ -19,18 +16,12 @@ function NewService() {
     const [total, setTotal] = useState(0)
     const [km, setKm] = useState('')
     const [spareParts, setSpareParts] = useState('')
-
     const [error, setError] = useState('')
 
     useEffect(() => {
-        const userName = localStorage.getItem('userName')
+        //const userName = localStorage.getItem('userName')
 
-        if(!userName) {
-            navigate('/', {replace: true})
-            return
-        }
-
-        setMechanic(userName.replace(/[ '"]+/g, ''))
+        //setMechanic(userName.replace(/[ '"]+/g, ''))
 
         VehiclesServices.findAll()
             .then(vehicles => setVehicles(vehicles))
@@ -49,7 +40,7 @@ function NewService() {
                 payment: 'Pendiente',
                 date,
                 order,
-                mechanic,
+                //mechanic,
                 dni,
                 domain,
                 km,
@@ -85,10 +76,8 @@ function NewService() {
                                 </div>
                                 <div>
                                     <label htmlFor="mechanic">Mecánico</label>
-                                    <input type="text" name="mechanic" id="mechanic"
-                                        readOnly
-                                        value={mechanic}
-                                    />
+                                    <input type="text" name="mechanic" id="mechanic" readOnly />
+                                    {/*value=mechanic*/}
                                 </div>
                                 <div>
                                     <label htmlFor="order">N° de orden</label>

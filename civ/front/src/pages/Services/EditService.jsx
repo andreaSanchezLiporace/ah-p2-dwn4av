@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { Link, useNavigate, useParams } from "react-router-dom"
+import { Link, useParams } from "react-router-dom"
 import * as ServicesServices from '../../Services/services'
 
 import './../../css/Services/newService.css'
@@ -7,8 +7,6 @@ import './../../css/Services/newService.css'
 function EditService() {
     const { id: idParams } = useParams()
     const date = new Date().getDate()+'/'+(new Date().getMonth()+1)+'/'+new Date().getFullYear()
-    
-    let navigate = useNavigate()
     
     const [domain, setDomain] = useState('')
     const [dni, setDni] = useState(0)
@@ -22,13 +20,6 @@ function EditService() {
     const [error, setError] = useState('')
 
     useEffect(() => {
-        const userName = localStorage.getItem('userName')
-
-        if(!userName) {
-            navigate('/', {replace: true})
-            return
-        }
-
         ServicesServices.findOne(idParams)
             .then(service => {
                 setDomain(service.domain)
@@ -41,7 +32,7 @@ function EditService() {
                 setMechanic(service.mechanic)
             })
             .catch(err => console.error(`Error: ${err}`))
-    }, [idParams, navigate])
+    }, [idParams])
 
     const handleSubmit = (e) => {
         e.preventDefault()
